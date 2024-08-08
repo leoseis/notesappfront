@@ -2,6 +2,7 @@
 import React from 'react'
 import NavBar from './components/NavBar'
 import Filter from './components/Filter'
+import NoteCardContainer from './components/NoteCardContainer'
 
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
     <div>
     <NavBar/>
     <Filter />
+    <NoteCardContainer/>
     </div>
   )
 }
