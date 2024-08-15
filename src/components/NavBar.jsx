@@ -2,6 +2,7 @@ import React from 'react'
 import {Navbar,Nav,Container,Row,NavDropdown} from 'react-bootstrap'
 import { FaSquarePlus } from "react-icons/fa6";
 import {  Form, FormControl, Button } from 'react-bootstrap';
+import { Link } from "react-router-dom"
 
 
 const NavBar = () => {
@@ -18,6 +19,7 @@ const NavBar = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
+            <Link to="/add-note"  style={{ textDecoration: "none" }}>
             <button
             className="btn btn-outline-primary btn-md"
             type="button"
@@ -25,7 +27,7 @@ const NavBar = () => {
           >
             <FaSquarePlus className="me-2 fs-6" /> Add Notes
           </button>
-
+          </Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
