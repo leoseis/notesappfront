@@ -1,6 +1,7 @@
 import React from 'react'
 import { MdMarkunread } from "react-icons/md";
 import { FaNoteSticky } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 const NoteCard = () => {
   return (
@@ -9,9 +10,11 @@ const NoteCard = () => {
         <span className="side-stick" style={{ backgroundColor: 'blue' }}></span>
         <FaNoteSticky style={{ marginLeft: "auto", color: 'blue' }} />
         <a href="/notes-detail" style={{ textDecoration: "none", color: "black" }}>
-          <h5 className="note-title text-truncate w-75 mb-0">
+        <Link to= "note-detail"> 
+        <h5 className="note-title text-truncate w-75 mb-0">
             Book a Ticket for Movie
           </h5>
+         </Link>
         </a>
         <p className="note-date font-12 text-muted">11 March</p>
         <div className="note-content">
