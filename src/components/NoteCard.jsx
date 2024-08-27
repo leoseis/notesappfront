@@ -25,6 +25,7 @@ const NoteCard = () => {
             <Link to="/notes-detail">
               <MdMarkunread style={{ fontSize: "25px", cursor: "pointer", color: 'blue' }} />
             </Link>
+            <small className="text-muted"> Business</small>
           </span>
         </div>
       </div>

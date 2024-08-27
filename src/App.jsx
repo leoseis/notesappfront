@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Home from './pages/Home';
 import MainLayout from './layouts/MainLayout';
 import AddNotePage from './pages/AddNotePage';
 import NoteDetailPage from './pages/NoteDetailPage';
 import EditNotePage from './pages/EditNotePage';
+import axios from "axios";
 
 const App = () => {
+  const [motes, SetNotes] = useState([])
+
+  useEffect(()=>{
+    axios.get('http://127.0.0.1:8000/notes/')
+    .then(res=>{
+      console.log(res.data)
+      
+    })
+    .catch(err=>{
+      console.log(err.message)
+    })
+  },[])
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -18,6 +31,7 @@ const App = () => {
       </Route>
      
     )
+    
   );
 
   return <RouterProvider router={router} />;
