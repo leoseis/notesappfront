@@ -8,12 +8,13 @@ import EditNotePage from './pages/EditNotePage';
 import axios from "axios";
 
 const App = () => {
-  const [motes, SetNotes] = useState([])
+  const [notes, setNotes] = useState([]);  
 
   useEffect(()=>{
     axios.get('http://127.0.0.1:8000/notes/')
     .then(res=>{
       console.log(res.data)
+      setNotes(res.data)
       
     })
     .catch(err=>{
@@ -24,9 +25,9 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path = '/' element ={<MainLayout/>}>
-         <Route index element={<Home />} />
+         <Route index element={<Home notes ={notes} />} />
          <Route path='/add-note' element ={<AddNotePage/>}/>
-         <Route path='/edit-note' element ={<EditNotePage/>}/>\
+         <Route path='/edit-note' element ={<EditNotePage/>}/>
          <Route path='/note-detail' element ={<NoteDetailPage/>}/>
       </Route>
      

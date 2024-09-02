@@ -11,7 +11,7 @@ const NoteCard = () => {
         <FaNoteSticky style={{ marginLeft: "auto", color: 'blue' }} />
         <Link to="/note-detail" style={{ textDecoration: "none", color: "black" }}>
           <h5 className="note-title text-truncate w-75 mb-0">
-            Book a Ticket for Movie
+            booking my ticket
           </h5>
         </Link>
         <p className="note-date font-12 text-muted">11 March</p>
@@ -25,7 +25,7 @@ const NoteCard = () => {
             <Link to="/notes-detail">
               <MdMarkunread style={{ fontSize: "25px", cursor: "pointer", color: 'blue' }} />
             </Link>
-            <small className="text-muted"> Business</small>
+            <small className="text-muted">Business</small>
           </span>
         </div>
       </div>
