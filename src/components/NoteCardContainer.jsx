@@ -10,7 +10,7 @@ const NoteCardContainer = ({notes}) => {
         
 
         
-        { notes.map(note => <NoteCard key={note.id} />)}
+        { notes.map(note => <NoteCard key={note.id}note={note} />)}
 
 
        
