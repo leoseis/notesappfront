@@ -2,11 +2,12 @@ import React from 'react'
 import { MdMarkunread } from "react-icons/md";
 import { FaNoteSticky } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import { FormatDate } from './FormatDate';
 
 const NoteCard = ({note}) => {
 
   const body = `${note.body.split(" ").slice(0, 20).join(" ")} ...`
-  const color = note.category == "BUSINESS" ? "blue" : note.category == "PERSONAL" ? "green" : "purple"
+  const color = note.category === "BUSINESS" ? "blue" : note.category === "PERSONAL" ? "green" : "purple"
 
 
   return (
@@ -19,7 +20,7 @@ const NoteCard = ({note}) => {
             {note.title}
           </h5>
         </Link>
-        <p className="note-date font-12 text-muted">11 March</p>
+        <p className="note-date font-12 text-muted">{note.updated}</p>
         <div className="note-content">
           <p className="note-inner-content text-muted">
           {body}
@@ -30,7 +31,7 @@ const NoteCard = ({note}) => {
             <Link to="/notes-detail">
               <MdMarkunread style={{ fontSize: "25px", cursor: "pointer", color: color }} />
             </Link>
-            <small className="text-muted">{note.category}</small>
+            <p className="text-muted">{FormatDate(note.updated)}</p>
           </span>
         </div>
       </div>
