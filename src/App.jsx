@@ -9,12 +9,15 @@ import axios from "axios";
 
 const App = () => {
   const [notes, setNotes] = useState([]);  
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(()=>{
+    setIsLoading(true);
     axios.get('http://127.0.0.1:8000/notes/')
     .then(res=>{
       console.log(res.data)
       setNotes(res.data)
+      setIsLoading(false);
       
     })
     .catch(err=>{
@@ -25,7 +28,7 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path = '/' element ={<MainLayout/>}>
-         <Route index element={<Home notes ={notes} />} />
+         <Route index element={<Home notes ={notes} Loading ={isLoading} />} />
          <Route path='/add-note' element ={<AddNotePage/>}/>
          <Route path='/edit-note' element ={<EditNotePage/>}/>
          <Route path='/note-detail' element ={<NoteDetailPage/>}/>

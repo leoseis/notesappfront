@@ -1,11 +1,16 @@
 import React from 'react'
 import NoteCard from './NoteCard'
+import Loader from './Loader'
 
-const NoteCardContainer = ({notes}) => {
+const NoteCardContainer = ({notes,  loading}) => {
   console.log(notes)
   return (
     <div className='container'>
        <div className="note-has-grid row">
+
+        {loading && <Loader loading={loading} />}
+
+
 
         
 
