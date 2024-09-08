@@ -9,6 +9,7 @@ const NoteCardContainer = ({notes,  loading}) => {
        <div className="note-has-grid row">
 
         {loading && <Loader loading={loading} />}
+        {/* if loading is true its load with componet Loader displays if not it wont display  */}
 
 
 

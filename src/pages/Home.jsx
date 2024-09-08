@@ -11,4 +11,4 @@ const Home = ({notes,loading}) => {
   )
 }
 
-export default Home
+export default Home  

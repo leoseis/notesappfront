@@ -15,7 +15,7 @@ const NoteCard = ({note}) => {
       <div className="card card-body">
         <span className="side-stick" style={{ backgroundColor: color }}></span>
         <FaNoteSticky style={{ marginLeft: "auto", color: color }} />
-        <Link to="/note-detail" style={{ textDecoration: "none", color: "black" }}>
+        <Link to={`/notes/${note.slug}`} style={{textDecoration: "none", color: "black"}}>
           <h5 className="note-title text-truncate w-75 mb-0">
             {note.title}
           </h5>
@@ -28,7 +28,7 @@ const NoteCard = ({note}) => {
         </div>
         <div className="d-flex align-items-center">
           <span className="d-flex justify-content-around">
-            <Link to="/notes-detail">
+            <Link to="/notes/">
               <MdMarkunread style={{ fontSize: "25px", cursor: "pointer", color: color }} />
             </Link>
             <p className="text-muted">{FormatDate(note.updated)}</p>
