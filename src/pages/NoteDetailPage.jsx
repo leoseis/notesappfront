@@ -1,20 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiSolidTrashAlt } from "react-icons/bi";
 import { FiEdit } from "react-icons/fi";
+import {  useParams } from "react-router-dom";
 import "./NoteDetailPage.css";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { FormatDate } from '../components/FormatDate';
 
 const NoteDetailPage = () => {
+  const [note, setNote] =useState ({})
+
+  const {slug} = useParams()
+
+  useEffect(()=>{
+   axios.get(`http://127.0.0.1:8000/notes/${slug}`)
+   .then( res=>{
+    setNote(res.data)
+    console.log(res.data)
+   })
+   .catch(err =>{
+    console.log(err.message)
+
+   })
+  }, [slug])
+    
+
+  
   return (
     <div className="note-container">
-        <h3 className="title">
-          they are the real deal
-        </h3>
+        <h3 className="title">{note.title}</h3>
         <span className="d-flex justify-content-center">
           <p className="note-date font-12 text-muted me-5">
             {" "}
+            created: {FormatDate(note.created)}
           </p>
           <p className="note-date font-12 text-muted me-5">
+            last updated: {FormatDate(note.updated)}
           </p>
         </span>
         <span className="button-group">
