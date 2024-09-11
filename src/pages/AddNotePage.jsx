@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./AddNotePage.css";
 
-const AddNotePage = () => {
+const AddNotePage = () => {     
+  const [title, setTitle] = useState(''); // Correctly initialize the state
+  const [body, setBody] = useState('');
+  const [category, setCategory] = useState('');
+
+
+  const handleSubmit = (e)=>{
+    e.preventDefault(); // Fix the typo here
+    console.log('form submited')
+
+  }
+ 
+  
   return (
-    <form>
+    <form onSubmit={handleSubmit}>                         
     <h5>Update Note</h5>
     <div className="mb-3">
       <label htmlFor="exampleFormControlInput1" className="form-label">
@@ -13,6 +25,8 @@ const AddNotePage = () => {
         className="form-control"
         id="exampleFormControlInput1"
         placeholder="Enter note's title"
+        value={title}
+        onChange={(e)=>setTitle(e.target.value)}
       />
     </div>
 
@@ -25,6 +39,8 @@ const AddNotePage = () => {
         id="exampleFormControlTextarea1"
         rows={4}
         placeholder="Enter note's content"
+        value={body}
+        onChange={(e)=>setBody(e.target.value)}  
       ></textarea>
     </div>
 
@@ -36,6 +52,8 @@ const AddNotePage = () => {
         className="form-select"
         aria-label="Default select example"
         style={{ height: "40px" }}
+        value={category}
+        onChange={(e)=>setCategory(e.target.value)}
       >
         <option value="">Pick a category</option>
         <option value="BUSINESS">Business</option>
