@@ -8,8 +8,11 @@ const AddNotePage = () => {
 
 
   const handleSubmit = (e)=>{
-    e.preventDefault(); // Fix the typo here
-    console.log('form submited')
+    e.preventDefault(); // Fix from relaoding page
+    if (title && body && category) {         // condition to only submit if 3 field are filled
+      console.log('form submited')
+    }
+    
 
   }
  
