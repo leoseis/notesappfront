@@ -7,12 +7,20 @@ const AddNotePage = () => {
   const [category, setCategory] = useState('');
 
 
+  const newNote ={
+    title: title,
+    body : body,
+    category :category
+  }
+
+
   const handleSubmit = (e)=>{
     e.preventDefault(); // Fix from relaoding page
-    if (title && body && category) {         // condition to only submit if 3 field are filled
-      console.log('form submited')
+    if (!title && !body && !category) {
+      return ;                                      // condition to only submit if 3 field are filled
+      
     }
-    
+    console.log( newNote)
 
   }
  
