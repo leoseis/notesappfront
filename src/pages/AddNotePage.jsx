@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./AddNotePage.css";
 
-const AddNotePage = () => {     
+const AddNotePage = ({addNote}) => {     
   const [title, setTitle] = useState(''); // Correctly initialize the state
   const [body, setBody] = useState('');
   const [category, setCategory] = useState('');
@@ -10,18 +10,19 @@ const AddNotePage = () => {
   const newNote ={
     title: title,
     body : body,
-    category :category
+    category :category                              // adding objects from backend
   }
 
 
   const handleSubmit = (e)=>{
     e.preventDefault(); // Fix from relaoding page
     if (!title && !body && !category) {
-      return ;                                      // condition to only submit if 3 field are filled
-      
+      return;
+     
     }
-    console.log( newNote)
-
+   
+    addNote(newNote)                                   // condition to only submit if 3 field are filled
+    console.log(newNote)
   }
  
   

@@ -9,7 +9,6 @@ import { FormatDate } from '../components/FormatDate';
 
 const NoteDetailPage = () => {
   const [note, setNote] =useState ({})
-
   const {slug} = useParams()
 
   useEffect(()=>{
@@ -40,10 +39,10 @@ const NoteDetailPage = () => {
         </span>
         <span className="button-group">
           <Link to="/edit-note">
-          <button className="btn btn-primary">
+          <buttonp className="btn btn-primary">
               <FiEdit />
               <span>Edit</span>
-            </button>
+            </buttonp>
 
           </Link>
             
