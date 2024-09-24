@@ -23,9 +23,8 @@ const AddNotePage = ({addNote}) => {
       return;
      
     }
-   
     addNote(newNote)
-    navigate('/')                                   // condition to only submit if 3 field are filled
+    navigate("/")                                   // condition to only submit if 3 field are filled
     console.log(newNote)
   }
  
