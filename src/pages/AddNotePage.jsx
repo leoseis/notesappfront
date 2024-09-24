@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import "./AddNotePage.css";
+import { useNavigate } from 'react-router-dom';
 
 const AddNotePage = ({addNote}) => {     
   const [title, setTitle] = useState(''); // Correctly initialize the state
   const [body, setBody] = useState('');
   const [category, setCategory] = useState('');
+
+  const navigate = useNavigate()        //redirecting
 
 
   const newNote ={
@@ -21,7 +24,8 @@ const AddNotePage = ({addNote}) => {
      
     }
    
-    addNote(newNote)                                   // condition to only submit if 3 field are filled
+    addNote(newNote)
+    navigate('/')                                   // condition to only submit if 3 field are filled
     console.log(newNote)
   }
  

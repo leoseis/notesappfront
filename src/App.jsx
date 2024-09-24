@@ -15,7 +15,7 @@ const App = () => {
     setIsLoading(true)  
     axios.get('http://127.0.0.1:8000/notes/')
     .then(res=>{
-      console.log(res.data)
+       console.log(res.data)
       setNotes(res.data)
       setIsLoading(false)
       
@@ -28,6 +28,7 @@ const App = () => {
   const addNote =(data)=>{
     axios.post('http://127.0.0.1:8000/notes/',data)
     .then(res =>{
+      setNotes([...notes, data])
       console.log(res.data)
     })
 
