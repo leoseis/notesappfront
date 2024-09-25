@@ -6,6 +6,7 @@ import AddNotePage from './pages/AddNotePage';
 import NoteDetailPage from './pages/NoteDetailPage';
 import EditNotePage from './pages/EditNotePage';
 import axios from "axios";   
+import { toast } from 'react-toastify';
 
 const App = () => {
   const [notes, setNotes] = useState([]);  
@@ -29,6 +30,7 @@ const App = () => {
     axios.post('http://127.0.0.1:8000/notes/',data)
     .then(res =>{
       setNotes([...notes, data])
+      toast.success(' A new note has been added')   // adding note funtion
       console.log(res.data)
     })
 

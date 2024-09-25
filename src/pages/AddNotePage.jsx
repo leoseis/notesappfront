@@ -7,7 +7,7 @@ const AddNotePage = ({addNote}) => {
   const [body, setBody] = useState('');
   const [category, setCategory] = useState('');
 
-  const navigate = useNavigate()        //redirecting
+  const navigate = useNavigate()        //redirecting to home page
 
 
   const newNote ={
@@ -23,7 +23,7 @@ const AddNotePage = ({addNote}) => {
       return;
      
     }
-    addNote(newNote)
+    addNote(newNote)                                //newNotw from addNotePage as data
     navigate("/")                                   // condition to only submit if 3 field are filled
     console.log(newNote)
   }
