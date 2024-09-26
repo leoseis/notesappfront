@@ -1,7 +1,25 @@
-import React from 'react'
+import React,  { useEffect} from "react";
+import { useParams } from "react-router-dom";
 import "./AddNotePage.css";
+import axios from "axios";
 
 const EditNotePage = () => {
+
+  
+  const { slug } = useParams();
+
+  useEffect(() => {
+    axios.get(`http://127.0.0.1:8000/notes/${slug}`)
+      .then((res) => {
+         console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  });
+
+
+
   return (
     <form>
     <h5>Update Note</h5>
