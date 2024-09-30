@@ -22,7 +22,7 @@ const EditNotePage = () => {
       .catch((err) => {
         console.log(err.message);
       });
-  });
+  },[slug]);
 
 
 
@@ -38,6 +38,7 @@ const EditNotePage = () => {
         id="exampleFormControlInput1"
         placeholder="Enter note's title"
         value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
     </div>
 
@@ -52,6 +53,7 @@ const EditNotePage = () => {
         rows={4}
         placeholder="Enter note's content"
         value={body}
+        onChange={(e) => setBody(e.target.value)}
       ></textarea>
     </div>
 
@@ -64,6 +66,7 @@ const EditNotePage = () => {
         aria-label="Default select example"
         value={category}
         style={{ height: "40px" }}
+        onChange={(e) => setCategory(e.target.value)}
       >
          <option value="">Pick a category</option>                   {/* this is a string  */}
         <option value="BUSINESS">Business</option>
