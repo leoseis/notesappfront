@@ -24,10 +24,20 @@ const EditNotePage = () => {
       });
   },[slug]);
 
+  const updateNote ={            //new objects
+    title : title,
+    body  : body,
+    category : category
+  }
+   
+  const handleSubmit =(e)=>{
+    e.preventDefault()
+    console.log(updateNote)
+  }
 
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>                        
     <h5>Update Note</h5>
     <div className="mb-3">
       <label htmlFor="exampleFormControlInput1" className="form-label">
@@ -46,7 +56,7 @@ const EditNotePage = () => {
       <label htmlFor="exampleFormControlTextarea1" className="form-label">
         Content
       </label>
-      value
+      
       <textarea
         className="form-control"
         id="exampleFormControlTextarea1"

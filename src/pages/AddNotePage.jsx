@@ -31,7 +31,7 @@ const AddNotePage = ({addNote}) => {
   
   return (
     <form onSubmit={handleSubmit}>                         
-    <h5>Update Note</h5>
+    <h5> Add Note</h5>
     <div className="mb-3">
       <label htmlFor="exampleFormControlInput1" className="form-label">
         Title
@@ -81,7 +81,7 @@ const AddNotePage = ({addNote}) => {
       className="btn btn-primary d-flex justify-content-center"
       style={{ width: "100%" }}
     >
-      Update Note
+      Add Note
     </button>
   </form>
   )
