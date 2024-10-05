@@ -1,15 +1,16 @@
 import React,  { useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./AddNotePage.css";
 import axios from "axios";
 
-const EditNotePage = () => {
+const EditNotePage = ({updateNote}) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [category, setCategory] = useState("");
 
   
   const { slug } = useParams();
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/notes/${slug}`)
@@ -24,15 +25,18 @@ const EditNotePage = () => {
       });
   },[slug]);
 
-  const updateNote ={            //new objects
+  const updateNoteObject ={            //new objects
     title : title,
     body  : body,
     category : category
   }
    
-  const handleSubmit =(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(updateNote)
+
+    if(!title && !body && !category) return;
+    updateNote(updateNoteObject, slug)
+    navigate(`/notes/${slug}`)
   }
 
 

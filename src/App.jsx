@@ -40,12 +40,25 @@ const App = () => {
     })
   }
 
+  const updateNote = (data, slug) => {
+    axios
+      .put(`http://127.0.0.1:8000/notes/${slug}/`, data)
+      .then((res) => {
+        console.log(res.data);
+        toast.success("Note updated succesfully");
+      })
+
+      .catch((err) => console.log(err.message));
+  };
+
+
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path = '/' element ={<MainLayout/>}>
          <Route index element={<Home notes ={notes} loading ={isLoading} />} />
          <Route path='/add-note' element ={<AddNotePage addNote={addNote} />}/>
-         <Route path='/edit-note/:slug' element ={<EditNotePage/>}/>
+         <Route path='/edit-note/:slug' element ={<EditNotePage updateNote = {updateNote}/>}/>
          <Route path='/notes/:slug' element ={<NoteDetailPage/>}/>
       </Route>
      
