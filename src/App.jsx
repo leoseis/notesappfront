@@ -26,7 +26,7 @@ const App = () => {
     })
   },[])
 
-  const addNote =(data)=>{
+  const addNote =(data)=>{                                                       //addNote is apssed as props to the addNote url and page
     axios.post('http://127.0.0.1:8000/notes/',data)
     .then(res =>{
       setNotes([...notes, data])

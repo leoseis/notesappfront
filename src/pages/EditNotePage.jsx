@@ -10,7 +10,7 @@ const EditNotePage = ({updateNote}) => {
 
   
   const { slug } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate()                           // declaring a nv function
 
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/notes/${slug}`)
@@ -34,9 +34,9 @@ const EditNotePage = ({updateNote}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if(!title && !body && !category) return;
+    if(!title && !body && !category) return;             //all fields fillled
     updateNote(updateNoteObject, slug)
-    navigate(`/notes/${slug}`)
+    navigate(`/notes/${slug}`)                          //redirect to this url
   }
 
 

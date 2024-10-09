@@ -6,6 +6,7 @@ import "./NoteDetailPage.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { FormatDate } from "../components/FormatDate";
+import Modal from "../components/Modal";
 
 const NoteDetailPage = () => {
   const [note, setNote] = useState({});
@@ -24,7 +25,8 @@ const NoteDetailPage = () => {
   }, [slug]);
 
   return (
-    <div className="note-container">
+    <>
+<div className="note-container">
       <h3 className="title">{note.title}</h3>
       <span className="d-flex justify-content-center">
         <p className="note-date font-12 text-muted me-5">
@@ -50,7 +52,9 @@ const NoteDetailPage = () => {
       </span>
       <p className="description"></p>
     </div>
-  );
-};
+     <Modal />
+    </>
+    
+)};
 
 export default NoteDetailPage;

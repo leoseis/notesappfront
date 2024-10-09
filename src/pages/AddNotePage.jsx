@@ -7,7 +7,7 @@ const AddNotePage = ({addNote}) => {
   const [body, setBody] = useState('');
   const [category, setCategory] = useState('');
 
-  const navigate = useNavigate()        //redirecting to home page
+  const navigate = useNavigate()        // declaring redirecting to home page
 
 
   const newNote ={
@@ -18,7 +18,7 @@ const AddNotePage = ({addNote}) => {
 
 
   const handleSubmit = (e)=>{
-    e.preventDefault(); // Fix from relaoding page
+    e.preventDefault();                                // Fix from relaoding page
     if (!title && !body && !category) {
       return;
      
