@@ -10,9 +10,14 @@ import Modal from "../components/Modal";
 
 const NoteDetailPage = () => {
 
-  const [isOpen, setIsOPen] = useState(false);
+ 
   const [note, setNote] = useState({});
   const { slug } = useParams();
+  const [isOpen, setIsOPen] = useState(false);
+
+  const handleIsOpen =()=>{
+    setIsOPen(!isOpen)                                   //this negates the values of isOpen
+  }
 
   useEffect(() => {
     axios
@@ -47,7 +52,8 @@ const NoteDetailPage = () => {
           </buttonp>
         </Link>
 
-        <button className="btn btn-danger">
+        <button className="btn btn-danger"
+        onClick={handleIsOpen}>
           <BiSolidTrashAlt />
           <span>Delete</span>
         </button>
