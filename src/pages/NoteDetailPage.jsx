@@ -60,7 +60,7 @@ const NoteDetailPage = () => {
       </span>
       <p className="description"></p>
     </div>
-    {isOpen && <Modal />}        
+    {isOpen && <Modal handleIsOpen={handleIsOpen} />}        
     </>
     
 )};
