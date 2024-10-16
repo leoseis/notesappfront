@@ -9,6 +9,8 @@ import { FormatDate } from "../components/FormatDate";
 import Modal from "../components/Modal";
 
 const NoteDetailPage = () => {
+
+  const [isOpen, setIsOPen] = useState(false);
   const [note, setNote] = useState({});
   const { slug } = useParams();
 
@@ -52,7 +54,7 @@ const NoteDetailPage = () => {
       </span>
       <p className="description"></p>
     </div>
-     <Modal />
+    {isOpen && <Modal />}        
     </>
     
 )};
