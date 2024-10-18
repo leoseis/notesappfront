@@ -8,7 +8,7 @@ import axios from "axios";
 import { FormatDate } from "../components/FormatDate";
 import Modal from "../components/Modal";
 
-const NoteDetailPage = () => {
+const NoteDetailPage = ({deleteNote}) => {
 
  
   const [note, setNote] = useState({});
@@ -60,7 +60,7 @@ const NoteDetailPage = () => {
       </span>
       <p className="description"></p>
     </div>
-    {isOpen && <Modal handleIsOpen={handleIsOpen} />}        
+    {isOpen && (<Modal  handleIsOpen={handleIsOpen} deleteNote={() => deleteNote(slug)}/>)}       
     </>
     
 )};
