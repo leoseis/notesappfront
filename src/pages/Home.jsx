@@ -2,10 +2,11 @@ import React from 'react'
 import Filter from '../components/Filter'
 import NoteCardContainer from '../components/NoteCardContainer'
 
-const Home = ({notes,loading}) => {
+const Home = ({notes,loading, handleFilterText,filterText}) => {
   return (
-    <>           
-     <Filter />
+    <> 
+    filterText={filterText}          
+     <Filter handleFilterText={handleFilterText} />
      <NoteCardContainer notes={notes}loading={loading}/>
     </>
   )

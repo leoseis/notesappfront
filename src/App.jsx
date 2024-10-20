@@ -11,6 +11,12 @@ import { toast } from 'react-toastify';
 const App = () => {
   const [notes, setNotes] = useState([]);  
   const [isLoading, setIsLoading] = useState(false);
+  const [filterText, setFilterText] = useState("");
+
+  const handleFilterText = (val) => {
+    setFilterText(val);
+  };
+
 
   useEffect(()=>{
     setIsLoading(true)  
@@ -62,7 +68,7 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path = '/' element ={<MainLayout/>}>
-         <Route index element={<Home notes ={notes} loading ={isLoading} />} />
+         <Route index element={<Home filterText={filterText} notes ={notes} loading ={isLoading}handleFilterText={handleFilterText} />} />
          <Route path='/add-note' element ={<AddNotePage addNote={addNote} />}/>
          <Route path='/edit-note/:slug' element ={<EditNotePage updateNote = {updateNote}/>}/>
          <Route path='/notes/:slug' element ={<NoteDetailPage deleteNote={deleteNote}/>}/>
