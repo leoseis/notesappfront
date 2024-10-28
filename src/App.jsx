@@ -19,9 +19,13 @@ const App = () => {
 
 
   const filteredNotes =
-    filterText === "BUSINESS"
-      ? notes.filter((note) => note.category === "BUSINESS") : notes;
-
+  filterText === "BUSINESS"
+    ? notes.filter((note) => note.category === "BUSINESS")
+    : filterText === "PERSONAL"
+    ? notes.filter((note) => note.category === "PERSONAL")
+    : filterText === "IMPORTANT"
+    ? notes.filter((note) => note.category === "IMPORTANT")
+    : notes;
 
   useEffect(()=>{
     setIsLoading(true)  
