@@ -5,7 +5,7 @@ import NoteCardContainer from '../components/NoteCardContainer'
 const Home = ({notes,loading, handleFilterText,filterText}) => {
   return (
     <> 
-    filterText={filterText}          
+    {filterText}          
      <Filter handleFilterText={handleFilterText} />
      <NoteCardContainer notes={notes}loading={loading}/>
     </>
