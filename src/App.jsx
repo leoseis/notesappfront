@@ -12,6 +12,7 @@ const App = () => {
   const [notes, setNotes] = useState([]);  
   const [isLoading, setIsLoading] = useState(false);
   const [filterText, setFilterText] = useState("");
+  const [searchText, setSearchText] = useState("");
 
   const handleFilterText = (val) => {
     setFilterText(val);
@@ -76,7 +77,7 @@ const App = () => {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path = '/' element ={<MainLayout/>}>
+      <Route path = '/' element ={<MainLayout searchText={searchText}  />}>
          <Route index element={<Home filterText={filterText} notes ={filteredNotes} loading ={isLoading}handleFilterText={handleFilterText} />} />
          <Route path='/add-note' element ={<AddNotePage addNote={addNote} />}/>
          <Route path='/edit-note/:slug' element ={<EditNotePage updateNote = {updateNote}/>}/>

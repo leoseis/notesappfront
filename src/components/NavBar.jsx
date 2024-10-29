@@ -5,7 +5,7 @@ import {  Form, FormControl, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom"
 
 
-const NavBar = () => {
+const NavBar = ({searchText}) => {
   return (
     <div>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -37,6 +37,7 @@ const NavBar = () => {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              value={searchText}
             />
             <Button variant="outline-success">Search</Button>
           </Form>

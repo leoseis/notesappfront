@@ -4,10 +4,10 @@ import NavBar from '../components/NavBar'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const MainLayout = () => {
+const MainLayout = ({searchText}) => {
   return (
    <>
-   <NavBar />
+   <NavBar searchText={searchText}/>
    <ToastContainer/>
    < Outlet/>
    </>
