@@ -18,6 +18,10 @@ const App = () => {
     setFilterText(val);
   };
 
+  const handleSearchText =(val)=>{
+    setSearchText(val)
+  }
+
 
   const filteredNotes =
   filterText === "BUSINESS"
@@ -77,8 +81,8 @@ const App = () => {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path = '/' element ={<MainLayout searchText={searchText}  />}>
-         <Route index element={<Home filterText={filterText} notes ={filteredNotes} loading ={isLoading}handleFilterText={handleFilterText} />} />
+    <Route path = '/' element ={<MainLayout searchText={searchText} handleSearchText={handleSearchText} />}>
+         <Route index element={<Home filterText={filterText} notes ={filteredNotes} loading ={isLoading}handleFilterText={handleFilterText}handleSearchText={handleSearchText} />} />
          <Route path='/add-note' element ={<AddNotePage addNote={addNote} />}/>
          <Route path='/edit-note/:slug' element ={<EditNotePage updateNote = {updateNote}/>}/>
          <Route path='/notes/:slug' element ={<NoteDetailPage deleteNote={deleteNote}/>}/>
