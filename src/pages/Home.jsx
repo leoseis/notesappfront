@@ -4,11 +4,18 @@ import NoteCardContainer from '../components/NoteCardContainer';
 
 const Home = ({ notes, loading, handleFilterText }) => {
   return (
-    <> 
-      {notes.length > 0 && <Filter handleFilterText={handleFilterText} />}
+    <>
+      {notes.length < 1 ? (
+        <h4 style={{ textAlign: "center", marginTop: "10px" }}>
+          There is no note found with the search phrase above
+        </h4>
+      ) : (
+        <Filter handleFilterText={handleFilterText} />
+      )}
       <NoteCardContainer notes={notes} loading={loading} />
     </>
   );
 };
 
 export default Home;
+
